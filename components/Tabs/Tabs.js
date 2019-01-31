@@ -12,6 +12,10 @@ class TabItem {
     // Add a class named "tabs-item-selected" to this element
     this.element.classList.add('tabs-item-selected');
   }
+
+  deselect() {
+    this.tabElement.remove('tabs-item-selected')
+  }
 }
 
 class TabLink {
@@ -38,6 +42,10 @@ class TabLink {
     // Call the select method on the item associated with this link
     this.itemElement.select();
   }
+
+  deselect() {
+    this.tabElement.remove('tabs-link-selected')
+  }
 }
 
 class Tabs {
@@ -46,8 +54,9 @@ class Tabs {
     this.data = element.dataset.tab;
     this.tabElement = document.querySelector(`.tabs-link[data-tab="${this.data}"]`);
     this.tabElement = new TabLink(this.tabElement);
+    const selected = document.querySelector('.tabs-link-selected');
+    }
   }
-}
 
 
 /* START HERE:
