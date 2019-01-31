@@ -15,7 +15,7 @@ class TabItem {
 }
 
 class TabLink {
-  constructor(element, selected) {
+  constructor(element) {
     // Assign this.element to the passed in DOM element
     this.element = element;
     // Get the custom data attribute on the Link
@@ -26,9 +26,6 @@ class TabLink {
     this.itemElement = new TabItem(this.itemElement);
     // Add a click event listener on this instance, calling the select method on click
     this.element.addEventListener('click', () => {this.select();});
-
-    this.selected = selected;
-    console.log(selected);
   }
 
   select() {
@@ -43,17 +40,6 @@ class TabLink {
   }
 }
 
-class Tabs {
-  constructor(element) {
-    this.element = element;
-    this.data = element.dataset.tab;
-    this.tabElement = document.querySelector(`.tabs-link[data-tab="${this.data}"]`);
-    this.selected = document.querySelector('.tabs-link-selected');
-    this.tabElement = new TabLink(this.tabElement, this.selected);
-    }
-  }
-
-
 /* START HERE:
 
 - Select all classes named ".tabs-link" and assign that value to the links variable
@@ -64,4 +50,4 @@ class Tabs {
 
 */
 
-document.querySelectorAll('.tabs-link').forEach(element => new Tabs(element));
+document.querySelectorAll('.tabs-link').forEach(element => new TabLink(element));
