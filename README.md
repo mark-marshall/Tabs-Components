@@ -1,6 +1,6 @@
 # TABS-COMPONENTS
 
-Topics:
+Topics::
 
 * Constructors with ES6 class syntax
 
